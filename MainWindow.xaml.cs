@@ -28,7 +28,7 @@ namespace Dota_Notifier
             {
                 if (title == "Dota 2")
                 {
-                    // send notification
+                    Api.Notify(id);
                 }
 
                 return title;
