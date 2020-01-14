@@ -80,6 +80,7 @@
     </ApplicationDefinition>
     <Compile Include="Image.cs" />
     <Compile Include="Storage.cs" />
+    <Compile Include="ActiveWindow.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

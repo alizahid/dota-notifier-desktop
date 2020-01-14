@@ -2,7 +2,6 @@
 using shortid;
 using System.Drawing;
 using System.Windows;
-using Point = System.Windows.Point;
 
 namespace Dota_Notifier
 {
@@ -14,6 +13,9 @@ namespace Dota_Notifier
         {
             InitializeComponent();
 
+            Left = SystemParameters.WorkArea.Width - Width - 20;
+            Top = SystemParameters.WorkArea.Height - Height - 20;
+
             NotifyIcon.Icon = new Icon("assets/dota2.ico");
             NotifyIcon.Click += ShowApp;
             NotifyIcon.Visible = true;
@@ -21,6 +23,8 @@ namespace Dota_Notifier
             string id = GetId();
 
             GenerateQR(id);
+
+            // ActiveWindow.Listen(title => title);
         }
 
         private string GetId()
@@ -56,21 +60,21 @@ namespace Dota_Notifier
 
         private void ShowApp(object sender, System.EventArgs e)
         {
-            this.ShowInTaskbar = true;
-            this.WindowState = WindowState.Normal;
+            ShowInTaskbar = true;
+            WindowState = WindowState.Normal;
 
-            this.Activate();
+            Activate();
         }
 
         private void HideApp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            this.ShowInTaskbar = false;
-            this.WindowState = WindowState.Minimized;
+            ShowInTaskbar = false;
+            WindowState = WindowState.Minimized;
         }
 
         private void CloseApp(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
