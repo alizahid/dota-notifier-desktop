@@ -18,10 +18,12 @@ namespace Dota_Notifier
             NotifyIcon.Click += ShowApp;
             NotifyIcon.Visible = true;
 
-            Init();
+            string id = GetId();
+
+            GenerateQR(id);
         }
 
-        private void Init()
+        private string GetId()
         {
             Storage storage = new Storage();
 
@@ -34,6 +36,11 @@ namespace Dota_Notifier
                 storage.Put("id", id);
             }
 
+            return id;
+        }
+
+        private void GenerateQR(string id)
+        {
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
 
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(id, QRCodeGenerator.ECCLevel.Q);
