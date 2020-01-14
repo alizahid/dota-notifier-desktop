@@ -1,0 +1,61 @@
+﻿<Window
+    x:Class="Dota_Notifier.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:Dota_Notifier"
+    mc:Ignorable="d"
+    Title="Dota Notifier"
+    Height="400"
+    Width="400"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    Background="{x:Null}"
+    Foreground="White"
+    WindowStyle="None"
+    AllowsTransparency="True">
+    <Grid>
+        <Border
+            BorderBrush="#FF000000"
+            BorderThickness="0"
+            CornerRadius="8"
+            Background="Black" />
+        <Image
+            HorizontalAlignment="Left"
+            Height="20"
+            VerticalAlignment="Top"
+            Width="20"
+            Source="assets/dota2.png"
+            Margin="10,10,40,10" />
+        <TextBlock
+            HorizontalAlignment="Left"
+            Margin="36,12,0,0"
+            TextWrapping="Wrap"
+            Text="Notifier"
+            VerticalAlignment="Top"
+            FontWeight="Bold" />
+        <Image
+            HorizontalAlignment="Right"
+            Height="20"
+            VerticalAlignment="Top"
+            Width="20"
+            Source="assets/minimize.png"
+            Margin="10,10,40,10"
+            MouseLeftButtonDown="HideApp" />
+        <Image
+            HorizontalAlignment="Right"
+            Height="20"
+            Width="20"
+            VerticalAlignment="Top"
+            Source="assets/close.png"
+            Margin="10"
+            MouseLeftButtonDown="CloseApp" />
+        <Image
+            x:Name="QrCode"
+            HorizontalAlignment="Center"
+            Height="300"
+            VerticalAlignment="Center"
+            Width="300" />
+    </Grid>
+</Window>
