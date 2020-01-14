@@ -24,7 +24,15 @@ namespace Dota_Notifier
 
             GenerateQR(id);
 
-            // ActiveWindow.Listen(title => title);
+            ActiveWindow.Listen(title =>
+            {
+                if (title == "Dota 2")
+                {
+                    // send notification
+                }
+
+                return title;
+            });
         }
 
         private string GetId()

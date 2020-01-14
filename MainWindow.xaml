@@ -4,55 +4,62 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
     Title="Dota Notifier"
-    Height="400"
     Width="300"
-    ResizeMode="NoResize"
+    Height="400"
+    AllowsTransparency="True"
     Background="{x:Null}"
     Foreground="White"
+    ResizeMode="NoResize"
     WindowStyle="None"
-    AllowsTransparency="True">
+    mc:Ignorable="d">
     <Grid>
         <Border
-            BorderBrush="#FF000000"
+            Background="Black"
             BorderThickness="0"
-            CornerRadius="8"
-            Background="Black" />
+            CornerRadius="8" />
         <Image
-            HorizontalAlignment="Left"
-            Height="20"
-            VerticalAlignment="Top"
             Width="20"
-            Source="assets/dota2.png"
-            Margin="20,20,0,0" />
+            Height="20"
+            Margin="20,20,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="assets/dota2.png" />
         <TextBlock
-            HorizontalAlignment="Left"
             Margin="50,22,0,0"
-            TextWrapping="Wrap"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontWeight="Bold"
             Text="Notifier"
-            VerticalAlignment="Top"
-            FontWeight="Bold" />
+            TextWrapping="Wrap" />
         <Image
-            HorizontalAlignment="Right"
-            Height="20"
-            VerticalAlignment="Top"
             Width="20"
-            Source="assets/minimize.png"
+            Height="20"
             Margin="0,20,50,0"
-            MouseLeftButtonDown="HideApp" />
-        <Image
             HorizontalAlignment="Right"
-            Height="20"
-            Width="20"
             VerticalAlignment="Top"
-            Source="assets/close.png"
+            MouseLeftButtonDown="HideApp"
+            Source="assets/minimize.png" />
+        <Image
+            Width="20"
+            Height="20"
             Margin="0,20,20,0"
-            MouseLeftButtonDown="CloseApp" />
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            MouseLeftButtonDown="CloseApp"
+            Source="assets/close.png" />
         <Image
             x:Name="QrCode"
+            Width="300"
             Height="300"
+            Margin="0,0,0,20"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom" />
+        <TextBlock
+            x:Name="log"
+            Margin="10,0,0,10"
+            HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Width="300" HorizontalAlignment="Center" Margin="0,0,0,20" />
+            TextWrapping="Wrap" />
     </Grid>
 </Window>
