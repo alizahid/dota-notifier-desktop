@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Text.RegularExpressions;
+﻿using System.Drawing;
 using Tesseract;
 
 namespace Dota_Notifier
@@ -18,10 +16,6 @@ namespace Dota_Notifier
             image.Dispose();
 
             string text = page.GetText();
-
-            TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
-
-            System.IO.File.WriteAllText(t.TotalSeconds + ".txt", text);
 
             if (text.IndexOf("READY CHECK") >= 0)
             {
@@ -42,8 +36,6 @@ namespace Dota_Notifier
             graphics.CopyFromScreen(new Point(bounds.Left, bounds.Top), Point.Empty, bounds.Size);
 
             graphics.Dispose();
-
-            bitmap.Save("dota.jpg");
 
             return bitmap;
         }
