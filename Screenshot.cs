@@ -29,7 +29,7 @@ namespace Dota_Notifier
             }
             else if (text.IndexOf("GAME IS READY") >= 0)
             {
-                Api.Notify(Api.GAME_IS_READY);
+                Api.Notify(Api.MATCH_READY);
             }
         }
 
