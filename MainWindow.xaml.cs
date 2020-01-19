@@ -24,28 +24,18 @@ namespace Dota_Notifier
 
             GenerateQR(id);
 
-            ActiveWindow.Listen(title =>
-            {
-                if (title == "Dota 2")
-                {
-                    Api.Notify(id);
-                }
-
-                return title;
-            });
+            ActiveWindow.Listen();
         }
 
         private string GetId()
         {
-            Storage storage = new Storage();
-
-            string id = storage.Get("id");
+            string id = Storage.Get("id");
 
             if (id == null)
             {
                 id = ShortId.Generate(true);
 
-                storage.Put("id", id);
+                Storage.Put("id", id);
             }
 
             return id;

@@ -4,14 +4,14 @@ namespace Dota_Notifier
 {
     public class Storage
     {
-        private readonly LocalStorage storage = new LocalStorage();
+        private static readonly LocalStorage storage = new LocalStorage();
 
-        public Storage()
+        static Storage()
         {
             storage.Load();
         }
 
-        public string Get(string key)
+        public static string Get(string key)
         {
             if (storage.Exists(key))
             {
@@ -21,13 +21,13 @@ namespace Dota_Notifier
             return null;
         }
 
-        public void Put(string key, string value)
+        public static void Put(string key, string value)
         {
             storage.Store(key, value);
             storage.Persist();
         }
 
-        public void Clear()
+        public static void Clear()
         {
             storage.Clear();
             storage.Destroy();
