@@ -2,7 +2,7 @@
 
 namespace Dota_Notifier
 {
-    public class Storage
+    public static class Storage
     {
         private static readonly LocalStorage storage = new LocalStorage();
 
@@ -19,6 +19,18 @@ namespace Dota_Notifier
             }
 
             return null;
+        }
+
+        public static string Get(string key, string fallback)
+        {
+            string value = Storage.Get(key);
+
+            if (value == null)
+            {
+                return fallback;
+            }
+
+            return value;
         }
 
         public static void Put(string key, string value)

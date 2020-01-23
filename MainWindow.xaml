@@ -52,15 +52,27 @@
             x:Name="QrCode"
             Width="300"
             Height="300"
-            Margin="0,0,0,20"
+            Margin="0,50,0,0"
             HorizontalAlignment="Center"
-            VerticalAlignment="Bottom" />
+            VerticalAlignment="Top" />
         <TextBlock
-            x:Name="log"
+            x:Name="version"
             Margin="10,0,0,10"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Text="v1.0.0"
             TextWrapping="Wrap" />
+        <ComboBox
+            x:Name="delaySelector"
+            Width="100"
+            Margin="0,0,10,10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom">
+            <ComboBoxItem IsEnabled="False" IsSelected="True">Delay</ComboBoxItem>
+            <ComboBoxItem>1000ms</ComboBoxItem>
+            <ComboBoxItem>1500ms</ComboBoxItem>
+            <ComboBoxItem>2000ms</ComboBoxItem>
+            <ComboBoxItem>2500ms</ComboBoxItem>
+            <ComboBoxItem>3000ms</ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>

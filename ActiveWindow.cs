@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Dota_Notifier
 {
-    public class ActiveWindow
+    public static class ActiveWindow
     {
         private static WinEventDelegate @delegate;
 
@@ -27,7 +26,9 @@ namespace Dota_Notifier
             {
                 if (stringBuilder.ToString() == "Dota 2")
                 {
-                    System.Threading.Thread.Sleep(1500);
+                    int delay = Int32.Parse(Storage.Get("delay", "1500"));
+
+                    System.Threading.Thread.Sleep(delay);
 
                     IntPtr window = GetForegroundWindow();
 
@@ -47,7 +48,7 @@ namespace Dota_Notifier
         [DllImport("user32.dll")]
         static extern IntPtr SetWinEventHook(uint eventMin, uint eventMax, IntPtr hmodWinEventProc, WinEventDelegate lpfnWinEventProc, uint idProcess, uint idThread, uint dwFlags);
 
-        [DllImport("user32.dll")]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         static extern int GetWindowText(IntPtr handle, StringBuilder text, int count);
 
         [DllImport("user32.dll")]
